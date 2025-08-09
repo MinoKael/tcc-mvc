@@ -1,0 +1,39 @@
+services:
+  # Serviço da sua aplicação ASP.NET Core
+  meu-app-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: meu-tcc-app
+    ports:
+      - "8080:8080" # Mapeia a porta 8080 do seu PC para a 8080 do container
+      - "8081:8081"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080;https://+:8081
+      # Configuração para aceitar o certificado de desenvolvimento do Docker
+      # - ASPNETCORE_Kestrel__Certificates__Default__Password=mysecretpassword
+      # - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    volumes:
+      - ~/.aspnet/https:/https/:ro # Mapeia o certificado de dev local para o container
+    depends_on:
+      - db-postgres # Garante que o banco de dados inicie antes da aplicação
+
+  # Serviço do Banco de Dados PostgreSQL
+  db-postgres:
+    image: postgres:15 # Usa a imagem oficial do Postgres
+    container_name: meu-tcc-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_DB=meutccdb
+    ports:
+      - "5432:5432" # Expõe a porta do Postgres para você poder conectar com um cliente de BD
+    volumes:
+      - postgres-data:/var/lib/postgresql/data # Garante que os dados persistam
+
+  # pg-admin:
+  #   image: pg
+
+volumes:
+  postgres-data: # Define o volume para persistência dos dados do banco
