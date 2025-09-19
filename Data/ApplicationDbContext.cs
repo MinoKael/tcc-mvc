@@ -1,4 +1,4 @@
-using MeuTccMvc.Models;
+using MeuTccMvc.Models.Entity;
 using Microsoft.EntityFrameworkCore;
 
 namespace MeuTccMvc.Data

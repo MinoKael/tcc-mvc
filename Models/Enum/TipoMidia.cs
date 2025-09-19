@@ -1,4 +1,4 @@
-namespace MeuTccMvc.Models;
+namespace MeuTccMvc.Models.Enum;
 
 public enum TipoMidia
 {

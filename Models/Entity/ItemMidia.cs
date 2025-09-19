@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
+using MeuTccMvc.Models.Enum;
 
-namespace MeuTccMvc.Models;
+namespace MeuTccMvc.Models.Entity;
 
 public class ItemMidia
 {

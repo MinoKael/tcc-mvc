@@ -1,4 +1,5 @@
-using MeuTccMvc.Models;
+using MeuTccMvc.Models.Entity;
+using MeuTccMvc.Models.Enum;
 using Microsoft.EntityFrameworkCore;
 
 namespace MeuTccMvc.Data
