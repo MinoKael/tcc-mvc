@@ -1,0 +1,19 @@
+@model MeuTccMvc.Models.Series
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Nova Série";
+}
+
+<h2>Nova Série</h2>
+
+<form asp-action="CreateSeries" method="post">
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Director"></label>
+        <input asp-for="Director" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>

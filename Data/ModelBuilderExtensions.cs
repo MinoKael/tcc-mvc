@@ -1,4 +1,4 @@
-using MeuTccMvc.Models.Entity;
+using MeuTccMvc.Models;
 using MeuTccMvc.Models.Enum;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,70 +8,68 @@ namespace MeuTccMvc.Data
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
-
-
-            modelBuilder.Entity<ItemMidia>().HasData(
-                new ItemMidia
+            modelBuilder.Entity<Book>().HasData(
+                new Book
                 {
                     Id = 1,
-                    Titulo = "O Senhor dos Anéis: A Sociedade do Anel",
-                    AutorDiretor = "J.R.R. Tolkien",
-                    AnoLancamento = 1954,
-                    Genero = "Fantasia",
+                    Title = "O Senhor dos Anéis: A Sociedade do Anel",
+                    Author = "J.R.R. Tolkien",
+                    ReleaseYear = 1954,
+                    Genre = "Fantasia",
                     Sinopse = "Um jovem hobbit herda um anel mágico e perigoso que deve ser destruído antes que caia nas mãos do mal.",
-                    TipoMidia = TipoMidia.Livro
+                    MediaType = MediaType.Book
                 },
-                new ItemMidia
+                new Book
                 {
                     Id = 2,
-                    Titulo = "Duna",
-                    AutorDiretor = "Frank Herbert",
-                    AnoLancamento = 1965,
-                    Genero = "Ficção Científica",
+                    Title = "Duna",
+                    Author = "Frank Herbert",
+                    ReleaseYear = 1965,
+                    Genre = "Ficção Científica",
                     Sinopse = "A jornada de um jovem nobre em um planeta desértico perigoso para garantir o futuro de seu povo.",
-                    TipoMidia = TipoMidia.Livro
+                    MediaType = MediaType.Book
                 },
 
-                new ItemMidia
+                new Movie
                 {
                     Id = 3,
-                    Titulo = "O Poderoso Chefão",
-                    AutorDiretor = "Francis Ford Coppola",
-                    AnoLancamento = 1972,
-                    Genero = "Crime, Drama",
+                    Title = "O Poderoso Chefão",
+                    Director = "Francis Ford Coppola",
+                    ReleaseYear = 1972,
+                    Genre = "Crime, Drama",
                     Sinopse = "O patriarca de uma dinastia do crime organizado transfere o controle de seu império clandestino para seu filho relutante.",
-                    TipoMidia = TipoMidia.Filme
+                    MediaType = MediaType.Movie
                 },
-                new ItemMidia
+                new Movie
                 {
                     Id = 4,
-                    Titulo = "Interestelar",
-                    AutorDiretor = "Christopher Nolan",
-                    AnoLancamento = 2014,
-                    Genero = "Ficção Científica, Aventura",
+                    Title = "Interestelar",
+                    Director = "Christopher Nolan",
+                    ReleaseYear = 2014,
+                    Genre = "Ficção Científica, Aventura",
                     Sinopse = "Uma equipe de exploradores viaja através de um buraco de minhoca no espaço na tentativa de garantir a sobrevivência da humanidade.",
-                    TipoMidia = TipoMidia.Filme
+                    MediaType = MediaType.Movie
                 },
 
-                new ItemMidia
+                new Series
                 {
                     Id = 5,
-                    Titulo = "Breaking Bad",
-                    AutorDiretor = "Vince Gilligan",
-                    AnoLancamento = 2008,
-                    Genero = "Crime, Drama, Suspense",
+                    Title = "Breaking Bad",
+                    Director = "Vince Gilligan",
+                    ReleaseYear = 2008,
+                    Genre = "Crime, Drama, Suspense",
                     Sinopse = "Um professor de química do ensino médio diagnosticado com câncer de pulmão inoperável passa a produzir e vender metanfetamina para garantir o futuro de sua família.",
-                    TipoMidia = TipoMidia.Serie
+                    MediaType = MediaType.Series
                 },
-                new ItemMidia
+                new Series
                 {
                     Id = 6,
-                    Titulo = "The Office (US)",
-                    AutorDiretor = "Greg Daniels",
-                    AnoLancamento = 2005,
-                    Genero = "Comédia",
+                    Title = "The Office (US)",
+                    Director = "Greg Daniels",
+                    ReleaseYear = 2005,
+                    Genre = "Comédia",
                     Sinopse = "Um documentário sobre o dia a dia cômico e, por vezes, tocante dos funcionários de uma empresa de papel.",
-                    TipoMidia = TipoMidia.Serie
+                    MediaType = MediaType.Series
                 }
             );
         }

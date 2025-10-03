@@ -1,0 +1,15 @@
+@model MeuTccMvc.Models.MediaItem
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Excluir Item";
+}
+
+<h2>Excluir</h2>
+
+<h3>Você tem certeza que deseja excluir @Model.Title?</h3>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Confirmar</button> |
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

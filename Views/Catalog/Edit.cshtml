@@ -1,0 +1,16 @@
+@model MeuTccMvc.Models.MediaItem
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Editar Item";
+}
+
+<h2>Editar Item</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+</form>

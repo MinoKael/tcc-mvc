@@ -1,0 +1,21 @@
+@model MeuTccMvc.Models.MediaItem
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Detalhes";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <p><strong>Título:</strong> @Model.Title</p>
+    @if (Model is MeuTccMvc.Models.Book b)
+    {
+        <p><strong>Autor:</strong> @b.Author</p>
+    }
+    @if (Model is MeuTccMvc.Models.Movie mv)
+    {
+        <p><strong>Diretor:</strong> @mv.Director</p>
+    }
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>

@@ -1,0 +1,47 @@
+
+@model IEnumerable<MeuTccMvc.Models.MediaItem>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Catálogo";
+}
+
+<h2>Catálogo</h2>
+
+<form asp-action="Index" method="get" class="form-inline mb-3">
+    <input type="text" name="searchString" placeholder="Buscar por título/autor/diretor" class="form-control mr-2" />
+    <select name="type" class="form-control mr-2">
+        <option value="">Todos</option>
+        <option value="Book">Livros</option>
+        <option value="Movie">Filmes</option>
+    </select>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+<p>
+    <a asp-action="CreateBook" class="btn btn-success">Adicionar Livro</a>
+    <a asp-action="CreateMovie" class="btn btn-success">Adicionar Filme</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Tipo</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.MediaType</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
