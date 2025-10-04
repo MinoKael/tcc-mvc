@@ -5,7 +5,7 @@ namespace MeuTccMvc.Data
 {
     public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
     {
-     public DbSet<MediaItem> MediaItems { get; set; }
+        public DbSet<MediaItem> MediaItems { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

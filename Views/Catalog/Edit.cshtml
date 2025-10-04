@@ -9,8 +9,58 @@
 <form asp-action="Edit" method="post">
     <input type="hidden" asp-for="Id" />
     <div class="form-group">
-        <label asp-for="Title"></label>
+        <label for="Title">Título</label>
         <input asp-for="Title" class="form-control" />
     </div>
-    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+    @if (Model is Book book)
+    {
+        <div class="form-group">
+            <label for="Author">Autor</label>
+            <input type="text" name="Author" id="Author" class="form-control" value="@book.Author" />
+        </div>
+        <div class="form-group">
+            <label for="ISBN">ISBN</label>
+            <input type="text" name="ISBN" id="ISBN" class="form-control" value="@book.ISBN" />
+        </div>
+        <div class="form-group">
+            <label for="Publisher">Editora</label>
+            <input type="text" name="Publisher" id="Publisher" class="form-control" value="@book.Publisher" />
+        </div>
+    }
+    else if (Model is Movie movie)
+    {
+        <div class="form-group">
+            <label for="Director">Diretor</label>
+            <input type="text" name="Director" id="Director" class="form-control" value="@movie.Director" />
+        </div>
+        <div class="form-group">
+            <label for="DurationMinutes">Duração</label>
+            <input type="text" name="DurationMinutes" id="DurationMinutes" class="form-control" value="@movie.DurationMinutes" />
+        </div>
+    }
+    else if (Model is Series series)
+    {
+        <div class="form-group">
+            <label for="Director">Diretor</label>
+            <input type="text" name="Director" id="Director" class="form-control" value="@series.Director" />
+        </div>
+            <div class="form-group">
+            <label for="Seasons">Temporadas</label>
+            <input type="text" name="Seasons" id="Seasons" class="form-control" value="@series.Seasons" />
+        </div>
+    }
+
+    <div class="form-group">
+        <label asp-for="Sinopse"></label>
+        <input asp-for="Sinopse" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="ReleaseYear">Ano de Lançamento</label>
+        <input asp-for="ReleaseYear" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Genre">Gênero</label>
+        <input asp-for="Genre" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary mt-1">Salvar Alterações</button>
 </form>

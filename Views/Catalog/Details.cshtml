@@ -8,13 +8,24 @@
 
 <div>
     <p><strong>Título:</strong> @Model.Title</p>
+    <p><strong>Sinopse:</strong> @Model.Sinopse</p>
+    <p><strong>Ano de Lançamento:</strong> @Model.ReleaseYear</p>
+    <p><strong>Gênero:</strong> @Model.Genre</p>
     @if (Model is MeuTccMvc.Models.Book b)
     {
         <p><strong>Autor:</strong> @b.Author</p>
+        <p><strong>ISBN:</strong> @b.ISBN</p>
+        <p><strong>Editora:</strong> @b.Publisher</p>
     }
     @if (Model is MeuTccMvc.Models.Movie mv)
     {
         <p><strong>Diretor:</strong> @mv.Director</p>
+        <p><strong>Duração:</strong> @mv.DurationMinutes</p>
+    }
+    @if (Model is MeuTccMvc.Models.Series s)
+    {
+        <p><strong>Diretor:</strong> @s.Director</p>
+        <p><strong>Temporadas:</strong> @s.Seasons</p>
     }
 </div>
 

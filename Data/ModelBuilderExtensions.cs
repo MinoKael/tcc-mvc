@@ -16,7 +16,7 @@ namespace MeuTccMvc.Data
                     Author = "J.R.R. Tolkien",
                     ReleaseYear = 1954,
                     Genre = "Fantasia",
-                    Sinopse = "Um jovem hobbit herda um anel mágico e perigoso que deve ser destruído antes que caia nas mãos do mal.",
+                    Sinopse = "Um jovem hobbit herda um anel mágico e perigoso...",
                     MediaType = MediaType.Book
                 },
                 new Book
@@ -26,10 +26,12 @@ namespace MeuTccMvc.Data
                     Author = "Frank Herbert",
                     ReleaseYear = 1965,
                     Genre = "Ficção Científica",
-                    Sinopse = "A jornada de um jovem nobre em um planeta desértico perigoso para garantir o futuro de seu povo.",
+                    Sinopse = "A jornada de um jovem nobre em um planeta desértico...",
                     MediaType = MediaType.Book
-                },
+                }
+            );
 
+            modelBuilder.Entity<Movie>().HasData(
                 new Movie
                 {
                     Id = 3,
@@ -37,7 +39,7 @@ namespace MeuTccMvc.Data
                     Director = "Francis Ford Coppola",
                     ReleaseYear = 1972,
                     Genre = "Crime, Drama",
-                    Sinopse = "O patriarca de uma dinastia do crime organizado transfere o controle de seu império clandestino para seu filho relutante.",
+                    Sinopse = "O patriarca de uma dinastia do crime organizado...",
                     MediaType = MediaType.Movie
                 },
                 new Movie
@@ -47,10 +49,12 @@ namespace MeuTccMvc.Data
                     Director = "Christopher Nolan",
                     ReleaseYear = 2014,
                     Genre = "Ficção Científica, Aventura",
-                    Sinopse = "Uma equipe de exploradores viaja através de um buraco de minhoca no espaço na tentativa de garantir a sobrevivência da humanidade.",
+                    Sinopse = "Uma equipe de exploradores viaja através de um buraco...",
                     MediaType = MediaType.Movie
-                },
+                }
+            );
 
+            modelBuilder.Entity<Series>().HasData(
                 new Series
                 {
                     Id = 5,
@@ -58,7 +62,7 @@ namespace MeuTccMvc.Data
                     Director = "Vince Gilligan",
                     ReleaseYear = 2008,
                     Genre = "Crime, Drama, Suspense",
-                    Sinopse = "Um professor de química do ensino médio diagnosticado com câncer de pulmão inoperável passa a produzir e vender metanfetamina para garantir o futuro de sua família.",
+                    Sinopse = "Um professor de química diagnosticado com câncer...",
                     MediaType = MediaType.Series
                 },
                 new Series
@@ -68,10 +72,11 @@ namespace MeuTccMvc.Data
                     Director = "Greg Daniels",
                     ReleaseYear = 2005,
                     Genre = "Comédia",
-                    Sinopse = "Um documentário sobre o dia a dia cômico e, por vezes, tocante dos funcionários de uma empresa de papel.",
+                    Sinopse = "Um documentário sobre o dia a dia cômico...",
                     MediaType = MediaType.Series
                 }
             );
         }
     }
+
 }

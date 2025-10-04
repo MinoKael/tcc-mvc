@@ -1,3 +1,5 @@
+@using System.Reflection
+@using MeuTccMvc.Models.Enum
 
 @model IEnumerable<MeuTccMvc.Models.MediaItem>
 @{
@@ -8,11 +10,12 @@
 <h2>Catálogo</h2>
 
 <form asp-action="Index" method="get" class="form-inline mb-3">
-    <input type="text" name="searchString" placeholder="Buscar por título/autor/diretor" class="form-control mr-2" />
-    <select name="type" class="form-control mr-2">
+    <input type="text" name="searchString" placeholder="Buscar por título/autor/diretor" class="form-control mb-1 mr-2" />
+    <select name="type" class="form-control mb-1 mr-2">
         <option value="">Todos</option>
         <option value="Book">Livros</option>
         <option value="Movie">Filmes</option>
+        <option value="Series">Séries</option>
     </select>
     <button type="submit" class="btn btn-primary">Buscar</button>
 </form>
@@ -20,6 +23,7 @@
 <p>
     <a asp-action="CreateBook" class="btn btn-success">Adicionar Livro</a>
     <a asp-action="CreateMovie" class="btn btn-success">Adicionar Filme</a>
+    <a asp-action="CreateSeries" class="btn btn-success">Adicionar Série</a>
 </p>
 
 <table class="table table-bordered">
@@ -35,7 +39,7 @@
         {
             <tr>
                 <td>@item.Title</td>
-                <td>@item.MediaType</td>
+                <td>@item.MediaType.GetDisplayName()</td>
                 <td>
                     <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
                     <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |

@@ -6,22 +6,16 @@ services:
       dockerfile: Dockerfile
     container_name: meu-tcc-app
     ports:
-      - "8080:8080" 
-      - "8081:8081"
+      - "8080:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=http://+:8080;https://+:8081
-      # Configuração para aceitar o certificado de desenvolvimento do Docker
-      - ASPNETCORE_Kestrel__Certificates__Default__Password=mysecretpassword
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
-    volumes:
-      - ~/.aspnet/https:/https/:ro 
+      - ASPNETCORE_URLS=http://+:8080
     depends_on:
-      - db-postgres 
-
+      db-postgres:
+        condition: service_healthy
   
   db-postgres:
-    image: postgres:15 
+    image: postgres:14
     container_name: meu-tcc-db
     environment:
       - POSTGRES_USER=postgres
@@ -31,6 +25,11 @@ services:
       - "5432:5432" 
     volumes:
       - postgres-data:/var/lib/postgresql/data 
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d meutccdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   pgadmin:
     image: dpage/pgadmin4
