@@ -23,7 +23,7 @@ Para executar este projeto, você precisará ter as seguintes ferramentas instal
 
 1.  **Clone o repositório:**
     ```sh
-    git clone [https://github.com/MinoKael/tcc-mvc.git](https://github.com/MinoKael/tcc-mvc.git)
+    git clone https://github.com/MinoKael/tcc-mvc.git
     cd MeuTccMvc
     ```
 
